@@ -17,4 +17,11 @@ defmodule Githubapi.Core.ClientTest do
     assert String.contains?(response, "https://github.com/elixir-lang/docs")
     refute String.contains?(response, "https://github.com/elixir-lang/ecto")
   end
+
+  @tag :integration
+  test "fetches the language of a repository" do
+    response = Client.languages_for_repository("elixir-lang", "docs")
+
+    assert String.contains?(response, "HTML")
+  end
 end
