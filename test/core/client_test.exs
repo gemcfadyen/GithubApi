@@ -3,7 +3,7 @@ defmodule Githubapi.Core.ClientTest do
   alias Githubapi.Core.Client
 
   @tag :integration
-  test "fetches known repositories" do
+  test "fetches known repositories for a user" do
     response = Client.repositories_for_user("elixir-lang")
 
     assert String.contains?(response, "elixir-lang/docs")
@@ -11,7 +11,7 @@ defmodule Githubapi.Core.ClientTest do
   end
 
   @tag :integration
-  test "fetches a specific repository" do
+  test "fetches a specific repository for a user" do
     response = Client.repository_for_user("elixir-lang", "docs")
 
     assert String.contains?(response, "https://github.com/elixir-lang/docs")
