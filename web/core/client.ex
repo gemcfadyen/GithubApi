@@ -1,8 +1,13 @@
 defmodule Githubapi.Core.Client do
   @base_url "https://api.github.com/"
 
-  def get_repositories(username) do
-    url = @base_url <> "users/#{username}/repos"
+  def repositories_for_user(name) do
+    url = @base_url <> "users/#{name}/repos"
+    get(url)
+  end
+
+  def repository_for_user(name, repository_name) do
+    url = @base_url <> "repos/#{name}/#{repository_name}"
     get(url)
   end
 
