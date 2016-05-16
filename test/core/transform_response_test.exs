@@ -7,6 +7,8 @@ defmodule Githubapi.Core.TransformResponseTest do
 
     repo = TransformResponse.extract_repos(response) |> List.first
 
+    assert repo.name == "docs"
     assert repo.full_name == "elixir-lang/docs"
+    assert repo.html_url == "https://github.com/elixir-lang/docs"
   end
 end
