@@ -9,6 +9,7 @@ defmodule Githubapi.PageController do
   end
 
   def user_repos(conn, %{"user" => user}) do
+    # Spike #
     Client.repositories_for_user(user)
     |> TransformResponse.extract_repos
     |> Enum.map(fn(repo) -> Repository.save(repo) end)
