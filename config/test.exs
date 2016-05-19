@@ -9,6 +9,8 @@ config :githubapi, Githubapi.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+config :githubapi, :github_client, Githubapi.Core.FakeClient
+
 # Configure your database
 config :githubapi, Githubapi.Repo,
   adapter: Ecto.Adapters.Postgres,

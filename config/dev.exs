@@ -32,6 +32,8 @@ config :logger, :console, format: "[$level] $message\n"
 # and calculating stacktraces is usually expensive.
 config :phoenix, :stacktrace_depth, 20
 
+config :githubapi, :github_client, Githubapi.Core.FakeClient
+
 # Configure your database
 config :githubapi, Githubapi.Repo,
   adapter: Ecto.Adapters.Postgres,

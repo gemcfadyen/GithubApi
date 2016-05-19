@@ -19,6 +19,7 @@ config :githubapi, Githubapi.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :githubapi, :github_client, Githubapi.Core.Client
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

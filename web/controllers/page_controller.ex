@@ -1,6 +1,6 @@
 defmodule Githubapi.PageController do
   use Githubapi.Web, :controller
-  alias Githubapi.Core.Client
+  alias Githubapi.Core.GetUserRepos
   alias Githubapi.Core.TransformResponse
   alias Githubapi.Core.Repositories.Repository
 
@@ -9,13 +9,17 @@ defmodule Githubapi.PageController do
   end
 
   def user_repos(conn, %{"user" => user}) do
-    # Spike #
-    Client.repositories_for_user(user)
+    GetUserRepos.get(user)
     |> TransformResponse.extract_repos
     |> Enum.map(fn(repo) -> Repository.save(repo) end)
 
+    # repos = Repositories.All.for_user(user)
     repos = Repository.all
 
     json conn, repos
   end
+
+  # def populate_user_repos(conn, params) do
+  #   redirect conn, to: "/"
+  # end
 end
